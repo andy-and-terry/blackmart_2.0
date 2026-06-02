@@ -1,27 +1,64 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<!-- Ensures correct scaling on mobile devices -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>BlackMart 2.0</title>
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script defer src="assets/js/main.js"></script>
-	<script defer src="assets/js/drc.js"></script>
+  <meta charset="UTF-8">
+  <title>blackmart_2.0 is moving!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
 </head>
 <body>
-	<!-- Site header / branding -->
-	<h1>BlackMart 2.0</h1>
-	<br>
-	<p><a href="onlineapp/">Online Application</a></p>
-	<br>
-	<!-- Main content area -->
-	<section id="content">
-	<!--content here...-->
-	<h3>Welcome!</h3>
-	<p>We recommend checking out our online application...</p>
-	</section>
-	<br>
-	<footer> (c) BlackMart, 2026</footer>
+  <h1>blackmary_2.0 is moving!</h1>
+  <p><a href="https://andy-and-terry.github.io/websites/websites/blackmart_2.0/">Our new website</a></p>
+  <p>WARNING: THIS SITE [OLD DOMAIN] WILL BE CLOSED IN <span id="days-left">3/October/2026 1:00:00</span></p>
+  <hr>
+  <p>Progress</p>
+  <progress max="100" value="0"></progress>
+  <p>Checklist</p>
+  <ol>
+    <li>[TODO] New Domain</li>
+    <li>[TODO] Transfer old data
+    <li>[TODO] Delete old data</li>
+    <li>[TODO] Archive files</li>
+    <li>[TODO] Publicise old data</li>
+  </ol>
+  <script>
+  function updateCountdown() {
+    const target = new Date('2026-10-03T13:00:00');
+    const now = new Date();
+
+    if (target <= now) {
+      document.getElementById('days-left').textContent = "It's here!";
+      return;
+    }
+
+    let months = (target.getFullYear() - now.getFullYear()) * 12 + (target.getMonth() - now.getMonth());
+    const afterMonths = new Date(now.getFullYear(), now.getMonth() + months, now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
+    if (afterMonths > target) months--;
+
+    const monthsBase = new Date(now.getFullYear(), now.getMonth() + months, now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds());
+    let diff = target - monthsBase;
+
+    const weeks = Math.floor(diff / (1000 * 60 * 60 * 24 * 7));
+    diff -= weeks * (1000 * 60 * 60 * 24 * 7);
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    diff -= days * (1000 * 60 * 60 * 24);
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    diff -= hours * (1000 * 60 * 60);
+    const minutes = Math.floor(diff / (1000 * 60));
+    diff -= minutes * (1000 * 60);
+    const seconds = Math.floor(diff / 1000);
+
+    document.getElementById('days-left').textContent =
+      `${months} months ${weeks} weeks ${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
 </body>
-</html>
